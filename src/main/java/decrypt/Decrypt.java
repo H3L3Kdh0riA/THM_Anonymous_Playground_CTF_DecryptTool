@@ -8,31 +8,36 @@ public class Decrypt {
 
 	private static final String chars = "abcdefghijklmnopqrstuvwxyz";
 
-	public static void main(String[] args) throws Exception {
-		if (args.length != 1) {
-			System.out.println("usage: decrypt ciphertext");
-		}
+	public static void main(String[] args) {
 
-		String ciphertext = args[0];
-		if (ciphertext == null) {
-			throw new NullPointerException("ciphertext is null");
-		}
-
-		String[] ciphertexts = ciphertext.toLowerCase().split("[:][:]");
-
-		StringBuffer sb = new StringBuffer();
-		boolean first = true;
-		for (String part : ciphertexts) {
-			if (first) {
-				first = false;
-			} else {
-				sb.append(":");
+		new Banner().print();
+		try {
+			if (args.length != 1) {
+				System.out.println("usage: decrypt ciphertext");
 			}
-			sb.append(decode(part.trim()));
+
+			String ciphertext = args[0];
+			if (ciphertext == null) {
+				throw new NullPointerException("ciphertext is null");
+			}
+
+			String[] ciphertexts = ciphertext.toLowerCase().split("[:][:]");
+
+			StringBuffer sb = new StringBuffer();
+			boolean first = true;
+			for (String part : ciphertexts) {
+				if (first) {
+					first = false;
+				} else {
+					sb.append(":");
+				}
+				sb.append(decode(part.trim()));
+			}
+
+			System.out.println("result: " + sb.toString());
+		} catch (Exception e) {
+			System.out.println();
 		}
-
-		System.out.println("result: " + sb.toString());
-
 	}
 
 	private static String decode(String ciphertext) throws InvalidAttributeIdentifierException, Exception {
@@ -72,4 +77,3 @@ public class Decrypt {
 	}
 
 }
-
