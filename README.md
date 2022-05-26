@@ -1,4 +1,4 @@
-# Tryhackme Anonymous Playground CTF - Password Decrypt Tool
+# Tryhackme Anonymous Playground CTF - DecryptTool
 This tool decrypts username and password for the ssh access to the virtual machine in the Tryhackme Anonymous Playground CTF Room.<br>
 
 #Prerequisites
