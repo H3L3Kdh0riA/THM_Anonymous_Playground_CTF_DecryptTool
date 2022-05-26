@@ -13,7 +13,7 @@ public class Decrypt {
 		new Banner().print();
 		try {
 			if (args.length != 1) {
-				System.out.println("usage: decrypt ciphertext");
+				System.out.println("usage: ciphertext (encrypteduser::encryptedpassword)");
 			}
 
 			String ciphertext = args[0];
